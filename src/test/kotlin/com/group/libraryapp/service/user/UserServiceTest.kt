@@ -4,7 +4,6 @@ import com.group.libraryapp.domain.user.User
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.dto.user.request.UserCreateRequest
 import com.group.libraryapp.dto.user.request.UserUpdateRequest
-import com.group.libraryapp.service.user.UserService
 import org.assertj.core.api.AssertionsForInterfaceTypes.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.DisplayName
@@ -62,7 +61,9 @@ class UserServiceTest @Autowired constructor(
     fun updateUserNameTest() {
         //given
         val user = userRepository.save(User("A", null))
-        val request = UserUpdateRequest(user.id, "B")
+        //한번 저장하고 난 다음에는 절대 id가 null이 아니기에 단언처리 해준다.
+        //Java UserUpdateRequest의 long이라서 발생하는 문제
+        val request = UserUpdateRequest(user.id!!, "B")
         //when
         userService.updateUserName(request)
         //then
