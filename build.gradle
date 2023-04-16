@@ -5,9 +5,9 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version('1.6.21')
     //kotlin에서 jpa 생성자 issue를 해결하기 위한 plugin
     id 'org.jetbrains.kotlin.plugin.jpa' version('1.6.21')
+    id 'org.jetbrains.kotlin.kapt' version('1.6.21')
     //spring bean을 자동으로 open
     id 'org.jetbrains.kotlin.plugin.spring' version('1.6.21')
-    id 'org.jetbrains.kotlin.kapt' version('1.6.21')
 }
 
 group = 'com.group'
